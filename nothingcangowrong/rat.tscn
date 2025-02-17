@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://guu5bbsbqc43"]
+
+[ext_resource type="Script" path="res://rat.gd" id="1_p6iv6"]
+[ext_resource type="Texture2D" uid="uid://bbfdlfa8idu47" path="res://icon.svg" id="2_876ul"]
+
+[node name="Rat" type="CharacterBody2D"]
+motion_mode = 1
+wall_min_slide_angle = 0.347321
+script = ExtResource("1_p6iv6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_876ul")

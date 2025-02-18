@@ -6,7 +6,7 @@ const MAXSPEED : float = 200.0
 var Direction : Vector2
 var Friction : float = 0.0
 var Sneak : bool
-var SneakFactor : float = 3
+var SneakFactor : float = 3.0
 func _physics_process(delta):
 	Direction = Vector2(0, 0)
 	
@@ -27,7 +27,7 @@ func _physics_process(delta):
 		Direction += Vector2(1, 0)
 	Direction = Direction.normalized()
 	
-	#fix this tommorow, dosent work well right now.
+	#Movement
 	if velocity.length() < MAXSPEED:
 		velocity += Direction * ACCELERATION * delta
 	velocity = velocity.length()*Direction
@@ -42,6 +42,7 @@ func _physics_process(delta):
 	#if Direction.y == 0:
 	#	velocity.y *= Friction * delta
 	
+	#Sneak, manually manipualting the raw output instead of writing it into the movement code
 	if Sneak:
 		velocity /= SneakFactor
 		move_and_slide()

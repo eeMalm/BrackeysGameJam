@@ -8,4 +8,4 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	position = position.lerp(rat.position, 3 * delta)
+	position = position.lerp(rat.position, 4.5 * delta)

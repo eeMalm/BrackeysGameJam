@@ -1,13 +1,22 @@
 extends CharacterBody2D
 
 
-const ACCELERATION : float = 1000 
-const MAXSPEED : float = 400.0
+const ACCELERATION : float = 4000 
+const MAXSPEED : float = 200.0
 var Direction : Vector2
 var Friction : float = 0.0
-
+var Sneak : bool
+var SneakFactor : float = 3.0
 func _physics_process(delta):
 	Direction = Vector2(0, 0)
+	
+	#OTHER INPUT
+	if Input.is_action_pressed("Sneak"):
+		Sneak = true
+	else:
+		Sneak = false
+	
+	#DIRECTIONAL INPUT
 	if Input.is_action_pressed("W"):
 		Direction += Vector2(0, -0.5)
 	if Input.is_action_pressed("S"):
@@ -16,10 +25,9 @@ func _physics_process(delta):
 		Direction += Vector2(-1, 0)
 	if Input.is_action_pressed("D"):
 		Direction += Vector2(1, 0)
-	print(Direction)
 	Direction = Direction.normalized()
 	
-	#fix this tommorow, dosent work well right now.
+	#Movement
 	if velocity.length() < MAXSPEED:
 		velocity += Direction * ACCELERATION * delta
 	velocity = velocity.length()*Direction
@@ -34,5 +42,12 @@ func _physics_process(delta):
 	#if Direction.y == 0:
 	#	velocity.y *= Friction * delta
 	
+	#Sneak, manually manipualting the raw output instead of writing it into the movement code
+	if Sneak:
+		velocity /= SneakFactor
+		move_and_slide()
+		velocity *= SneakFactor
+	else:
+		move_and_slide()
 	
-	move_and_slide()
+	

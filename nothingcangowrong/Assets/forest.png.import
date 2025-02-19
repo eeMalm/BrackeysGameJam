@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccdsd5d05m5rn"
-path="res://.godot/imported/human1 idle.png-8fdafb82da225f956be77db84630dc6b.ctex"
+uid="uid://ba4l4djg6xpwn"
+path="res://.godot/imported/forest.png-2b495563828e28fc3cad4f55cfac6c05.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/human1 idle.png"
-dest_files=["res://.godot/imported/human1 idle.png-8fdafb82da225f956be77db84630dc6b.ctex"]
+source_file="res://Assets/forest.png"
+dest_files=["res://.godot/imported/forest.png-2b495563828e28fc3cad4f55cfac6c05.ctex"]
 
 [params]
 

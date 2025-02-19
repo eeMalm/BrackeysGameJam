@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://guu5bbsbqc43"]
 
-[ext_resource type="Script" path="res://rat.gd" id="1_p6iv6"]
-[ext_resource type="Texture2D" uid="uid://fdple0qeimwu" path="res://sprites/rat idle.png" id="2_sbyei"]
+[ext_resource type="Script" path="res://Scripts/rat.gd" id="1_p6iv6"]
+[ext_resource type="Texture2D" uid="uid://fdple0qeimwu" path="res://Assets/rat idle.png" id="2_sbyei"]
 
 [node name="Rat" type="CharacterBody2D"]
 motion_mode = 1

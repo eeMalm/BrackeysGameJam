@@ -15,6 +15,10 @@ run/main_scene="res://Scenes/Main.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://Assets/icon.svg"
 
+[global_group]
+
+Enemies="Mainly for looping over enemies to change propertiees about them"
+
 [input]
 
 W={

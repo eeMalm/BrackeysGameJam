@@ -19,7 +19,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dphs7"]
-height = 23.0126
+radius = 18.8914
+height = 37.7828
 
 [node name="Human" type="Node2D"]
 script = ExtResource("1_ssfuh")
@@ -32,7 +33,7 @@ animation = &"PlaceHolder"
 [node name="SightArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SightArea"]
-scale = Vector2(5.13593, 8.84)
+scale = Vector2(7, 9)
 shape = SubResource("CapsuleShape2D_dphs7")
 
 [connection signal="body_entered" from="SightArea" to="." method="_on_sight_area_body_entered"]

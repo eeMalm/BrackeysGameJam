@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cm5g1fqokxler"]
+
+[ext_resource type="PackedScene" uid="uid://guu5bbsbqc43" path="res://Scenes/rat.tscn" id="1_6c3sh"]
+[ext_resource type="Script" path="res://Scenes/combat.gd" id="1_563ic"]
+[ext_resource type="PackedScene" uid="uid://cny1cv5n5xpl" path="res://Scenes/broom_attack.tscn" id="3_s0uu2"]
+
+[node name="Combat" type="Node2D"]
+script = ExtResource("1_563ic")
+
+[node name="combatBackground" type="Sprite2D" parent="."]
+
+[node name="Rat" parent="." instance=ExtResource("1_6c3sh")]
+position = Vector2(537, 314)
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Broom Attack" parent="." instance=ExtResource("3_s0uu2")]
+position = Vector2(695, 395)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

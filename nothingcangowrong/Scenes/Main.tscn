@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=3 uid="uid://b8ul0wtm4jlyu"]
+
+[ext_resource type="PackedScene" uid="uid://guu5bbsbqc43" path="res://Scenes/rat.tscn" id="1_4rash"]
+[ext_resource type="PackedScene" uid="uid://r4eb5ho263y5" path="res://Scenes/Human.tscn" id="1_5mni4"]
+[ext_resource type="Script" path="res://Scripts/path_follow_2d.gd" id="1_ctx3n"]
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_g12os"]
+[ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="2_4cdu1"]
+[ext_resource type="Texture2D" uid="uid://ba4l4djg6xpwn" path="res://Assets/forest.png" id="3_w03j3"]
+
+[sub_resource type="Curve2D" id="Curve2D_h231o"]
+_data = {
+"points": PackedVector2Array(-65.0356, 101.114, 65.0356, -101.114, -2, -176, -34.0384, -21.5549, 34.0384, 21.5549, 167, -184, -45.306, -53.9988, 45.306, 53.9988, 265, -113, 12.0756, -83.2242, -12.0756, 83.2242, 285, 20, 19.478, -59.4494, -19.478, 59.4494, 263, 131, 74.1662, -20.0469, -74.1662, 20.0469, 147, 197, 64.4272, 73.9661, -64.4272, -73.9661, 1, 234, 85.4035, 1.38254, -85.4035, -1.38254, -130, 212, -69.6713, 76.0399, 69.6713, -76.0399, -206, 119, 0.749153, 76.0399, -0.749153, -76.0399, -259, -35, -38.956, 47.0065, 38.956, -47.0065, -231, -121, -29.3997, -101.936, 29.3997, 101.936, -128, -156, -13.3635, 23.0178, 13.3635, -23.0178, -2, -176)
+}
+point_count = 13
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ls6dy"]
+height = 23.0126
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p1ipj"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_g12os")
+
+[node name="HumanPath" type="Path2D" parent="."]
+position = Vector2(-19.6085, -11.7836)
+scale = Vector2(1.15207, 0.731322)
+curve = SubResource("Curve2D_h231o")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="HumanPath"]
+position = Vector2(-2, -176)
+rotation = -0.999223
+rotates = false
+script = ExtResource("1_ctx3n")
+
+[node name="Human" parent="HumanPath/PathFollow2D" instance=ExtResource("1_5mni4")]
+position = Vector2(-15.5825, 32.6374)
+rotation = 0.999223
+scale = Vector2(0.868005, 1.36739)
+
+[node name="SightArea2" type="Area2D" parent="HumanPath/PathFollow2D/Human"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HumanPath/PathFollow2D/Human/SightArea2"]
+scale = Vector2(5.13593, 8.84)
+shape = SubResource("CapsuleShape2D_ls6dy")
+
+[node name="Rat" parent="." instance=ExtResource("1_4rash")]
+position = Vector2(0, 17)
+
+[node name="RatCollider" type="CollisionShape2D" parent="Rat"]
+position = Vector2(8.925, -3.405)
+scale = Vector2(1.73, 1.73)
+shape = SubResource("CircleShape2D_p1ipj")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(5, 5)
+script = ExtResource("2_4cdu1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -10
+texture_filter = 1
+texture = ExtResource("3_w03j3")
+
+[connection signal="body_entered" from="HumanPath/PathFollow2D/Human/SightArea2" to="." method="_on_sight_area_2_body_entered"]

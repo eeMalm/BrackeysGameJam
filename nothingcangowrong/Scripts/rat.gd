@@ -5,7 +5,7 @@ const ACCELERATION : float = 4000
 const MAXSPEED : float = 200.0
 var Direction : Vector2
 var Friction : float = 0.0
-var Sneak : bool
+@export var Sneak : bool
 var SneakFactor : float = 3.0
 func _physics_process(delta):
 	Direction = Vector2(0, 0)
@@ -43,6 +43,8 @@ func _physics_process(delta):
 	#	velocity.y *= Friction * delta
 	
 	#Sneak, manually manipualting the raw output instead of writing it into the movement code
+	
+	# The Sneak variabel is copied over into main, 
 	if Sneak:
 		velocity /= SneakFactor
 		move_and_slide()

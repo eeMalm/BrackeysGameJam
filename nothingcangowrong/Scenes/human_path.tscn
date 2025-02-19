@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bubohxdpnldye"]
+
+[ext_resource type="Curve2D" uid="uid://dm1slr5r10ois" path="res://Scenes/ExampleCurve.tres" id="1_bb54g"]
+[ext_resource type="Script" path="res://Scripts/path_follow_2d.gd" id="1_uhgl1"]
+[ext_resource type="PackedScene" uid="uid://r4eb5ho263y5" path="res://Scenes/Human.tscn" id="2_0gtuu"]
+
+[node name="HumanPath" type="Path2D"]
+curve = ExtResource("1_bb54g")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(-2, -176)
+rotates = false
+script = ExtResource("1_uhgl1")
+
+[node name="Human" parent="PathFollow2D" instance=ExtResource("2_0gtuu")]

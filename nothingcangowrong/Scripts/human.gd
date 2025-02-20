@@ -1,5 +1,4 @@
 extends Node2D
-
 var prevPos : float = 0
 var deltaV : float
 # Called when the node enters the scene tree for the first time.
@@ -18,6 +17,7 @@ func _process(delta: float) -> void:
 		
 func _on_sight_area_body_entered(body):
 	if body == get_node("/root/Main/Rat"):
-		#Combat()
+		get_tree().change_scene_to_file("res://Scenes/combat.tscn")#probably going to need to add a delay, but it works for now
+		
 		
 		print("The human saw a rat!!!")#<--remove later

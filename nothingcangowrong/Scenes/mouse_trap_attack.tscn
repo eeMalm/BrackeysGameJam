@@ -1,5 +1,19 @@
-[gd_scene format=3 uid="uid://cqmpvhwga3fuv"]
+[gd_scene load_steps=3 format=3 uid="uid://cqmpvhwga3fuv"]
 
-[node name="Mouse_Trap_Attack" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://b08ji1bv48jyg" path="res://Assets/mousetrap.png" id="1_brn01"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fiks4"]
+size = Vector2(191.866, 116.072)
+
+[node name="Mouse_Trap_Attack" type="Node2D" groups=["Enemies"]]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_brn01")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+position = Vector2(21.5742, -7.43621)
+rotation = 0.68894
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_fiks4")

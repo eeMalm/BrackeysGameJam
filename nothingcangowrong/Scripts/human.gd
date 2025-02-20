@@ -15,9 +15,11 @@ func _process(delta: float) -> void:
 		$AnimatedSprite2D.scale = Vector2(1, 1)
 	prevPos = get_parent().position.x
 		
-func _on_sight_area_body_entered(body):
-	if body == get_node("/root/Main/Rat"):
-		get_tree().change_scene_to_file("res://Scenes/combat.tscn")#probably going to need to add a delay, but it works for now
-		
-		
-		print("The human saw a rat!!!")#<--remove later
+#func _on_sight_area_body_entered(body):
+#	print()
+#	if body.is_in_group("Player"):
+#		get_tree().change_scene_to_file("res://Scenes/combat.tscn")#probably going to need to add a delay, but it works for now
+#		
+#		
+#		print("The human saw a rat!!!")#<--remove later
+#scene switcher has been moved to rat script

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cm5g1fqokxler"]
+[gd_scene load_steps=5 format=3 uid="uid://cm5g1fqokxler"]
 
 [ext_resource type="PackedScene" uid="uid://guu5bbsbqc43" path="res://Scenes/rat.tscn" id="1_6c3sh"]
 [ext_resource type="Script" path="res://Scenes/combat.gd" id="1_563ic"]
 [ext_resource type="PackedScene" uid="uid://cny1cv5n5xpl" path="res://Scenes/broom_attack.tscn" id="3_s0uu2"]
+[ext_resource type="PackedScene" uid="uid://dxll6hx2o5gbg" path="res://Scenes/stomp_attack.tscn" id="4_gjjfo"]
 
 [node name="Combat" type="Node2D"]
 script = ExtResource("1_563ic")
@@ -17,8 +18,9 @@ collision_mask = 3
 [node name="Timer" type="Timer" parent="."]
 
 [node name="Broom Attack" parent="." instance=ExtResource("3_s0uu2")]
-position = Vector2(1101, 416)
-collision_layer = 2
-collision_mask = 2
+position = Vector2(1242, 456)
+
+[node name="Stomp Attack" parent="." instance=ExtResource("4_gjjfo")]
+position = Vector2(395, 16)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

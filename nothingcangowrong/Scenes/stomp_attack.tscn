@@ -1,31 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://clu266ihwrvks"]
+[gd_scene load_steps=4 format=3 uid="uid://dxll6hx2o5gbg"]
 
-[ext_resource type="Texture2D" uid="uid://rv8vf2p1trqk" path="res://Assets/boot.png" id="1_yjv3q"]
+[ext_resource type="Script" path="res://Scenes/stomp_attack.gd" id="1_m6bwo"]
+[ext_resource type="Texture2D" uid="uid://cikj8y8ldtesi" path="res://Assets/boot longer.png" id="2_ua0dv"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_qobw2"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_yjv3q")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tcj7c"]
+radius = 83.1089
+height = 322.069
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_nv2ad"]
+[node name="Stomp Attack" type="CharacterBody2D" groups=["Enemies"]]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_m6bwo")
 
-[node name="StompAttack" type="Node2D"]
-
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-0.999992, -3)
-scale = Vector2(5.71875, 5)
-sprite_frames = SubResource("SpriteFrames_qobw2")
+position = Vector2(97, -298)
+rotation = -3.14159
+scale = Vector2(1.75, 1.9)
+texture = ExtResource("2_ua0dv")
+flip_h = true
+flip_v = true
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="." groups=["Enemies"]]
+position = Vector2(58, -59)
+rotation = 1.12032
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-2, 38)
-scale = Vector2(3.53745, 2.85897)
-shape = SubResource("CircleShape2D_nv2ad")
+shape = SubResource("CapsuleShape2D_tcj7c")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

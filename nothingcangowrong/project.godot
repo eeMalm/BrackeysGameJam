@@ -18,6 +18,8 @@ config/icon="res://Assets/icon.svg"
 [global_group]
 
 Enemies="Mainly for looping over enemies to change propertiees about them"
+Player=""
+Human=""
 
 [input]
 

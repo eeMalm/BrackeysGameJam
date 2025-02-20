@@ -39,7 +39,7 @@ animations = [{
 radius = 18.8914
 height = 37.7828
 
-[node name="Human" type="Node2D"]
+[node name="Human" type="Node2D" groups=["Human"]]
 script = ExtResource("1_ssfuh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -50,7 +50,7 @@ autoplay = "Walk"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
 
-[node name="SightArea" type="Area2D" parent="."]
+[node name="SightArea" type="Area2D" parent="." groups=["Human"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SightArea"]
 scale = Vector2(7, 9)

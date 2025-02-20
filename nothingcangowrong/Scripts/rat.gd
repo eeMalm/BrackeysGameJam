@@ -41,6 +41,7 @@ func _physics_process(delta):
 		$Sprite2D.scale = Vector2(1, 1)
 	if Direction.x == -1:
 		$Sprite2D.scale = Vector2(-1, 1)
+
 	
 	#if Direction.x == 0:
 	#	velocity.x *= Friction * delta
@@ -57,4 +58,16 @@ func _physics_process(delta):
 	else:
 		move_and_slide()
 	
-	
+
+func _on_rat_area_area_entered(area) -> void:
+	print("collided")
+	if area.is_in_group("Human"):
+		print("human collsion")
+		get_tree().change_scene_to_file("res://Scenes/combat.tscn")#probably going to need to add a delay, but it works for now
+	if area.is_in_group("Enemies"):
+		print("player got hit!")
+		#add take damage function here
+		
+		
+		
+		

@@ -309,7 +309,7 @@ scale = Vector2(1.1207, 1)
 position = Vector2(0, 17)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(4.5, 4.5)
+zoom = Vector2(2.75, 2.75)
 script = ExtResource("2_4cdu1")
 
 [node name="TileMap" type="TileMap" parent="."]

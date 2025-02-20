@@ -11,10 +11,14 @@ script = ExtResource("1_563ic")
 
 [node name="Rat" parent="." instance=ExtResource("1_6c3sh")]
 position = Vector2(537, 314)
+collision_layer = 3
+collision_mask = 3
 
 [node name="Timer" type="Timer" parent="."]
 
 [node name="Broom Attack" parent="." instance=ExtResource("3_s0uu2")]
-position = Vector2(695, 395)
+position = Vector2(1101, 416)
+collision_layer = 2
+collision_mask = 2
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -18,4 +18,6 @@ func _process(delta: float) -> void:
 		
 func _on_sight_area_body_entered(body):
 	if body == get_node("/root/Main/Rat"):
+		#Combat()
+		
 		print("The human saw a rat!!!")#<--remove later

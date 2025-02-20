@@ -1,21 +1,38 @@
-[gd_scene load_steps=6 format=3 uid="uid://r4eb5ho263y5"]
+[gd_scene load_steps=8 format=3 uid="uid://r4eb5ho263y5"]
 
-[ext_resource type="Texture2D" uid="uid://ccdsd5d05m5rn" path="res://Assets/human1 idle.png" id="1_ici5r"]
 [ext_resource type="Script" path="res://Scripts/human.gd" id="1_ssfuh"]
+[ext_resource type="Texture2D" uid="uid://cjyquldctgj8v" path="res://Assets/human1 spritesheet.png" id="2_vnvbf"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ssmdf"]
-atlas = ExtResource("1_ici5r")
-region = Rect2(0, 0, 107, 192)
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxa1i"]
+atlas = ExtResource("2_vnvbf")
+region = Rect2(0, 0, 101, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4qmui"]
+atlas = ExtResource("2_vnvbf")
+region = Rect2(101, 0, 101, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_toq0c"]
+atlas = ExtResource("2_vnvbf")
+region = Rect2(202, 0, 101, 192)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ydtg5"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ssmdf")
+"texture": SubResource("AtlasTexture_yxa1i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4qmui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_toq0c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4qmui")
 }],
 "loop": true,
-"name": &"PlaceHolder",
-"speed": 5.0
+"name": &"Walk",
+"speed": 3.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dphs7"]
@@ -28,7 +45,10 @@ script = ExtResource("1_ssfuh")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_ydtg5")
-animation = &"PlaceHolder"
+animation = &"Walk"
+autoplay = "Walk"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
 
 [node name="SightArea" type="Area2D" parent="."]
 

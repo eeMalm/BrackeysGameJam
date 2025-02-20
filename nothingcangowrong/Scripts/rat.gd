@@ -1,12 +1,16 @@
 extends CharacterBody2D
 
 
-const ACCELERATION : float = 4000 
-const MAXSPEED : float = 200.0
+var ACCELERATION : float = 4000
+var MAXSPEED : float = 200.0
 var Direction : Vector2
 var Friction : float = 0.0
 @export var Sneak : bool
 var SneakFactor : float = 3.0
+@export var Max_Health : int = 3
+@export var Health : int = 3
+func _ready():
+	pass
 func _physics_process(delta):
 	Direction = Vector2(0, 0)
 	
@@ -15,6 +19,7 @@ func _physics_process(delta):
 		Sneak = true
 	else:
 		Sneak = false
+	
 	
 	#DIRECTIONAL INPUT
 	if Input.is_action_pressed("W"):
@@ -34,7 +39,7 @@ func _physics_process(delta):
 	
 	if Direction.x == 1:
 		$Sprite2D.scale = Vector2(1, 1)
-	elif Direction.x == -1:
+	if Direction.x == -1:
 		$Sprite2D.scale = Vector2(-1, 1)
 	
 	#if Direction.x == 0:

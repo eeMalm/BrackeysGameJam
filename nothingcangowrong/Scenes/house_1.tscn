@@ -1,0 +1,226 @@
+[gd_scene load_steps=9 format=4 uid="uid://dxfceuivx4hho"]
+
+[ext_resource type="Texture2D" uid="uid://crycbdm8fvtrq" path="res://Assets/kitchen furniture tilemap new2.png" id="1_7g757"]
+[ext_resource type="Texture2D" uid="uid://d3fgj2rploaj2" path="res://Assets/walls and floors tilemap updated.png" id="2_me0pn"]
+[ext_resource type="PackedScene" uid="uid://r4eb5ho263y5" path="res://Scenes/Human.tscn" id="3_8qlpy"]
+
+[sub_resource type="TileSet" id="TileSet_107x2"]
+tile_size = Vector2i(100, 100)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_15thl"]
+texture = ExtResource("2_me0pn")
+texture_region_size = Vector2i(25, 25)
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+1:1/0 = 0
+3:1/0 = 0
+6:1/0 = 0
+8:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+16:1/0 = 0
+17:1/0 = 0
+18:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+16:2/0 = 0
+17:2/0 = 0
+18:2/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+5:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+11:6/0 = 0
+12:6/0 = 0
+13:6/0 = 0
+14:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+9:8/0 = 0
+10:8/0 = 0
+11:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+9:9/0 = 0
+10:9/0 = 0
+11:9/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_mcjp6"]
+tile_size = Vector2i(25, 25)
+sources/0 = SubResource("TileSetAtlasSource_15thl")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ruoem"]
+texture = ExtResource("1_7g757")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+16:0/0 = 0
+17:0/0 = 0
+18:0/0 = 0
+19:0/0 = 0
+20:0/0 = 0
+21:0/0 = 0
+22:0/0 = 0
+23:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+16:1/0 = 0
+17:1/0 = 0
+18:1/0 = 0
+19:1/0 = 0
+20:1/0 = 0
+21:1/0 = 0
+22:1/0 = 0
+23:1/0 = 0
+0:2/0 = 0
+6:2/0 = 0
+12:2/0 = 0
+18:2/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+15:3/0 = 0
+19:3/0 = 0
+20:3/0 = 0
+21:3/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+19:4/0 = 0
+20:4/0 = 0
+21:4/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_x6b25"]
+tile_size = Vector2i(100, 100)
+sources/1 = SubResource("TileSetAtlasSource_ruoem")
+
+[node name="House1" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+z_index = -10
+tile_set = SubResource("TileSet_107x2")
+format = 2
+
+[node name="Layer1" type="TileMapLayer" parent="TileMap"]
+texture_filter = 1
+use_parent_material = true
+scale = Vector2(4, 4)
+tile_map_data = PackedByteArray("AAD9//3/AAAFAAYAAAD+//3/AAAHAAYAAAD///3/AAAHAAYAAAD+//z/AAAEAAcAAAD///z/AAAHAAcAAAAAAP3/AAAEAAcAAAABAP3/AAAFAAYAAAABAPz/AAAFAAYAAAABAP//AAAHAAYAAAABAAAAAAAHAAYAAAD+/wAAAAAHAAcAAAD+////AAAGAAcAAAD9//7/AAAEAAcAAAD+//7/AAAEAAcAAAD///7/AAAHAAYAAAAAAP7/AAAEAAcAAAABAP7/AAAEAAcAAAD8//3/AAAEAAYAAAD8//7/AAAEAAYAAAAAAPz/AAAEAAcAAAD9//z/AAAEAAcAAAD8//z/AAAEAAYAAAD8////AAAEAAYAAAD9////AAAFAAYAAAD9/wAAAAAGAAcAAAD8/wAAAAAEAAYAAAD//wAAAAAHAAcAAAAAAAAAAAAHAAcAAAAAAP//AAAHAAYAAAD/////AAAHAAYAAAD8//v/AAAPAAEAAAD9//v/AAAPAAEAAAD+//v/AAAPAAEAAAD///v/AAAPAAEAAAAAAPv/AAAPAAEAAAABAPv/AAAPAAEAAAABAPr/AAAPAAEAAAAAAPr/AAAPAAEAAAD///r/AAAPAAEAAAD+//r/AAAPAAEAAAD9//r/AAAPAAEAAAD8//r/AAAPAAEAAAD8//n/AAAPAAEAAAD9//n/AAAPAAEAAAD+//n/AAAPAAEAAAD///n/AAAPAAEAAAAAAPn/AAAPAAEAAAABAPn/AAAPAAEAAAACAPv/AAAPAAEAAAACAPz/AAAPAAEAAAACAP3/AAAPAAEAAAACAP7/AAAPAAEAAAACAP//AAAPAAEAAAACAAAAAAAPAAEAAAD7/wAAAAAHAAcAAAD7////AAAEAAYAAAD7//7/AAAHAAcAAAD7//3/AAAHAAcAAAD7//z/AAAEAAYAAAD7//v/AAAPAAEAAAD7//r/AAAPAAEAAAACAPr/AAAPAAEAAAACAPn/AAAPAAEAAAD7//n/AAAPAAEAAAD6/wAAAAAEAAYAAAD6////AAAHAAcAAAD5////AAAHAAcAAAD5//7/AAAEAAYAAAD6//7/AAAHAAcAAAD6//3/AAAEAAYAAAD6//z/AAAHAAcAAAD5//z/AAAEAAYAAAD5//3/AAAHAAcAAAD5/wAAAAAEAAYAAAD6//r/AAAPAAEAAAD6//v/AAAPAAEAAAD6//n/AAAPAAEAAAD5//n/AAAPAAEAAAD5//r/AAAPAAEAAAD5//v/AAAPAAEAAAD4//r/AAAPAAEAAAD4//n/AAAPAAEAAAD4//v/AAAPAAEAAAD4//z/AAAPAAEAAAD4//3/AAAPAAEAAAD4//7/AAAPAAEAAAD4////AAAPAAEAAAD4/wAAAAAPAAEAAAD4/wEAAAAPAAEAAAD5/wEAAAAPAAEAAAD6/wEAAAAPAAEAAAD7/wEAAAAPAAEAAAAAAAEAAAAPAAEAAAD//wEAAAAPAAEAAAABAAEAAAAPAAEAAAACAAEAAAAPAAEAAAD8/wEAAAAPAAEAAAA=")
+tile_set = SubResource("TileSet_mcjp6")
+
+[node name="Layer2" type="TileMapLayer" parent="TileMap"]
+texture_filter = 1
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD9//z/AQACAAEAAAD9//v/AQACAAAAAAD8//z/AQABAAEAAAD7//z/AQABAAEAAAD6//z/AQAEAAEAAAD5//z/AQABAAEAAAD5//v/AQABAAAAAAD6//v/AQAEAAAAAAD7//v/AQABAAAAAAD8//v/AQABAAAAAAD///3/AQAFAAEAAAD///z/AQAFAAAAAAD7////AQAXAAEAAAD7//7/AQAXAAAAAAA=")
+tile_set = SubResource("TileSet_x6b25")
+
+[node name="Human" parent="." instance=ExtResource("3_8qlpy")]
+position = Vector2(-217, -219)
+NodeArray = Array[Vector2]([Vector2(0, 0), Vector2(1000, 0)])

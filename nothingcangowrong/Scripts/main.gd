@@ -5,7 +5,7 @@ var ReactionZone : Vector2 = Vector2(7, 9)
 
 # To Do: write the human AI to handle reaction times
 var ReactionTime : float
-
+var RatStack : Array[Array]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Sneak = $Rat.Sneak
@@ -18,10 +18,13 @@ func _process(delta: float) -> void:
 	# Handling global sneako efffects
 	if Sneak:
 		for n in get_tree().get_nodes_in_group("Enemies"):
-			n.get_node("/root/Main/Human/SightArea/CollisionShape2D").scale = ReactionZone * 0.6
+			#rewrite
+			pass
 	if !Sneak:
 		for n in get_tree().get_nodes_in_group("Enemies"):
-			n.get_node("/root/Main/Human/SightArea/CollisionShape2D").scale = ReactionZone
+			#rewrite
+			pass
+			
 
 func effect(item: String) -> void:
 	if item == "cheese":
@@ -41,12 +44,19 @@ func effect(item: String) -> void:
 		pass
 
 func start_battle() -> void:
-	$Rat.paused = true
-	$Human.paused = true
-	var combat_scene = load("res://Scenes/combat.tscn").instantiate()
-	combat_scene.process_mode = Node.PROCESS_MODE_ALWAYS
-	add_child(combat_scene)
-	
-		
-		
-	
+	RatStack.push_back([$Rat.position, $Enviornment.get_children(), $Camera2D.cmode])
+	#Enviornemnt may never have more than 1 child
+	$Enviornment.remove_child($Enviornment.get_child(0))
+	$Enviornment.add_child(load("res://Scenes/combat.tscn").instantiate())
+	#im assuming thats the position Nodarbs wants?
+	$"Rat".position = Vector2(0, 0)
+	$Camera2D.cmode = "combat"
+	pass
+
+func exit_scene() -> void:
+	$Rat.position = RatStack[-1][0]
+	#Enviornemnt may never have more than 1 child
+	$Enviornment.remove_child($Enviornment.get_child(0))
+	$Enviornment.add_child(load(RatStack[-1][1]).instantiate())
+	$Camera2D.mode = RatStack[-1][2]
+	RatStack.pop_back()

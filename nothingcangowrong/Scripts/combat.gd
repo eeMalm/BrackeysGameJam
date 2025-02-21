@@ -5,7 +5,9 @@ var Health : int
 func _ready() -> void:
 	# accessing Health from rat.gd here, whenevr changing Health locally, please also update the variable in rat.gd
 	# I tried finding a smart solution, but gdscript doesnt have pointers so its best to just assign back and forth
-	Health = get_node("Rat").Health
+	
+	Health = get_tree().root.get_node("Main/Rat").Health
+		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

@@ -38,4 +38,4 @@ func _process(delta: float) -> void:
 #		
 #		
 #		print("The human saw a rat!!!")#<--remove later
-#scene switcher has been moved to rat script
+#scene switcher has been reworked entirely, remove if you want

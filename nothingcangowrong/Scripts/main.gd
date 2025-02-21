@@ -18,10 +18,10 @@ func _process(delta: float) -> void:
 	# Handling global sneako efffects
 	if Sneak:
 		for n in get_tree().get_nodes_in_group("Enemies"):
-			n.get_node("/root/Main/HumanPath/PathFollow2D/Human/SightArea/CollisionShape2D").scale = ReactionZone * 0.6
+			n.get_node("/root/Main/Human/SightArea/CollisionShape2D").scale = ReactionZone * 0.6
 	if !Sneak:
 		for n in get_tree().get_nodes_in_group("Enemies"):
-			n.get_node("/root/Main/HumanPath/PathFollow2D/Human/SightArea/CollisionShape2D").scale = ReactionZone
+			n.get_node("/root/Main/Human/SightArea/CollisionShape2D").scale = ReactionZone
 
 func effect(item: String) -> void:
 	if item == "cheese":
@@ -39,6 +39,14 @@ func effect(item: String) -> void:
 	if item == "dentures":
 		#Run a function  to enable attacking, though we probably wont have time to add it
 		pass
+
+func start_battle() -> void:
+	$Rat.paused = true
+	$Human.paused = true
+	var combat_scene = load("res://Scenes/combat.tscn").instantiate()
+	combat_scene.process_mode = Node.PROCESS_MODE_ALWAYS
+	add_child(combat_scene)
+	
 		
 		
 	

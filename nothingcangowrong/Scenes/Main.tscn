@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://b8ul0wtm4jlyu"]
+[gd_scene load_steps=11 format=4 uid="uid://b8ul0wtm4jlyu"]
 
 [ext_resource type="PackedScene" uid="uid://guu5bbsbqc43" path="res://Scenes/rat.tscn" id="1_4rash"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_g12os"]
 [ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="2_4cdu1"]
 [ext_resource type="Texture2D" uid="uid://crycbdm8fvtrq" path="res://Assets/kitchen furniture tilemap new2.png" id="5_r68k2"]
 [ext_resource type="Texture2D" uid="uid://d3fgj2rploaj2" path="res://Assets/walls and floors tilemap updated.png" id="6_6ayuk"]
+[ext_resource type="PackedScene" uid="uid://r4eb5ho263y5" path="res://Scenes/Human.tscn" id="6_ofidp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7apx5"]
 texture = ExtResource("5_r68k2")
@@ -226,5 +227,9 @@ tile_set = SubResource("TileSet_q7884")
 [node name="Layer1" type="TileMapLayer" parent="TileMap"]
 texture_filter = 1
 use_parent_material = true
-tile_map_data = PackedByteArray("AAD9//3/AgAJAAEAAAD+//3/AgAJAAEAAAD///3/AgAJAAEAAAD+//z/AgAJAAEAAAD///z/AgAJAAEAAAAAAP3/AgAIAAEAAAABAP3/AgAKAAEAAAABAPz/AgAKAAAAAAABAP//AgALAAAAAAABAAAAAgALAAEAAAD+/wAAAgAFAAEAAAD+////AgAFAAAAAAA=")
+tile_map_data = PackedByteArray("AAD9//3/AAAJAAAAAAD+//3/AAAJAAAAAAD///3/AAAJAAAAAAD+//z/AgAJAAEAAAD///z/AgAJAAEAAAAAAP3/AAAKAAAAAAABAP3/AAAJAAAAAAABAPz/AgAKAAAAAAABAP//AAARAAAAAAABAAAAAAARAAEAAAD+/wAAAAAFAAEAAAD+////AAAFAAAAAAD9//7/AAADAAEAAAD+//7/AAADAAEAAAD///7/AAAIAAEAAAAAAP7/AAAKAAEAAAABAP7/AAADAAEAAAA=")
 tile_set = SubResource("TileSet_rma6i")
+
+[node name="Human" parent="." instance=ExtResource("6_ofidp")]
+position = Vector2(-235, -227)
+NodeArray = Array[Vector2]([Vector2(0, 0), Vector2(1000, 0)])

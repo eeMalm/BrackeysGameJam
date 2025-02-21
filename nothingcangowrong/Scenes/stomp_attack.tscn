@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dxll6hx2o5gbg"]
 
-[ext_resource type="Script" path="res://Scenes/stomp_attack.gd" id="1_m6bwo"]
+[ext_resource type="Script" path="res://Scripts/stomp_attack.gd" id="1_m6bwo"]
 [ext_resource type="Texture2D" uid="uid://cikj8y8ldtesi" path="res://Assets/boot longer.png" id="2_ua0dv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tcj7c"]

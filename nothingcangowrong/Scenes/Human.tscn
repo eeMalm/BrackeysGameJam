@@ -59,14 +59,4 @@ shape = SubResource("CapsuleShape2D_dphs7")
 
 [node name="ReactionTimer" type="Timer" parent="."]
 
-[node name="Movement nodes" type="Node2D" parent="."]
-
-[node name="Point1" type="Node2D" parent="Movement nodes"]
-
-[node name="Point2" type="Node2D" parent="Movement nodes"]
-
-[node name="Point3" type="Node2D" parent="Movement nodes"]
-
-[node name="Point4" type="Node2D" parent="Movement nodes"]
-
 [connection signal="body_entered" from="SightArea" to="." method="_on_sight_area_body_entered"]

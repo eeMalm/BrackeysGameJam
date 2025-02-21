@@ -41,6 +41,7 @@ height = 37.7828
 
 [node name="Human" type="Node2D" groups=["Human"]]
 script = ExtResource("1_ssfuh")
+NodeArray = Array[Vector2]([Vector2(1000, 0), Vector2(500, 500), Vector2(700, 100)])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -55,5 +56,17 @@ autoplay = "Walk"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SightArea"]
 scale = Vector2(7, 9)
 shape = SubResource("CapsuleShape2D_dphs7")
+
+[node name="ReactionTimer" type="Timer" parent="."]
+
+[node name="Movement nodes" type="Node2D" parent="."]
+
+[node name="Point1" type="Node2D" parent="Movement nodes"]
+
+[node name="Point2" type="Node2D" parent="Movement nodes"]
+
+[node name="Point3" type="Node2D" parent="Movement nodes"]
+
+[node name="Point4" type="Node2D" parent="Movement nodes"]
 
 [connection signal="body_entered" from="SightArea" to="." method="_on_sight_area_body_entered"]

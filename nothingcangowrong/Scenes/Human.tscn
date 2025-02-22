@@ -58,5 +58,8 @@ scale = Vector2(7, 9)
 shape = SubResource("CapsuleShape2D_dphs7")
 
 [node name="ReactionTimer" type="Timer" parent="."]
+one_shot = true
 
-[connection signal="body_entered" from="SightArea" to="." method="_on_sight_area_body_entered"]
+[connection signal="area_entered" from="SightArea" to="." method="_on_sight_area_area_entered"]
+[connection signal="area_exited" from="SightArea" to="." method="_on_sight_area_area_exited"]
+[connection signal="timeout" from="ReactionTimer" to="." method="_on_reaction_timer_timeout"]

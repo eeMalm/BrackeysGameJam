@@ -222,5 +222,6 @@ tile_map_data = PackedByteArray("AAD9//z/AQACAAEAAAD9//v/AQACAAAAAAD8//z/AQABAAE
 tile_set = SubResource("TileSet_x6b25")
 
 [node name="Human" parent="." instance=ExtResource("3_8qlpy")]
-position = Vector2(-217, -219)
-NodeArray = Array[Vector2]([Vector2(0, 0), Vector2(1000, 0)])
+position = Vector2(0, -219)
+HumanSpeed = 100.0
+NodeArray = Array[Vector2]([Vector2(0, 0), Vector2(-300, 0), Vector2(-300, 40)])

@@ -43,8 +43,13 @@ func _physics_process(delta):
 			$Sprite2D.scale = Vector2(1, 1)
 		if Direction.x == -1:
 			$Sprite2D.scale = Vector2(-1, 1)
-
 		
+		if Direction == Vector2(0, 0):
+			$Sprite2D.play("Idle")
+		elif Sneak:
+			$Sprite2D.play("Sneak")
+		else:
+			$Sprite2D.play("Walk")
 		#if Direction.x == 0:
 		#	velocity.x *= Friction * delta
 		#if Direction.y == 0:
@@ -66,6 +71,7 @@ func _on_rat_area_area_entered(area) -> void:
 	if area.is_in_group("Human"):
 		print("human collsion")
 		get_tree().root.get_node("Main").call_deferred("start_battle")
+		pass
 
 	if area.is_in_group("Enemies"):
 		print("player got hit!")

@@ -1,9 +1,84 @@
-[gd_scene load_steps=4 format=3 uid="uid://guu5bbsbqc43"]
+[gd_scene load_steps=14 format=3 uid="uid://guu5bbsbqc43"]
 
 [ext_resource type="Script" path="res://Scripts/rat.gd" id="1_p6iv6"]
 [ext_resource type="Texture2D" uid="uid://fdple0qeimwu" path="res://Assets/rat idle.png" id="2_sbyei"]
+[ext_resource type="Texture2D" uid="uid://cxsq52q0gqbl5" path="res://Assets/rat spritesheet.png" id="2_uok5o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1p537"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihhsw"]
+atlas = ExtResource("2_sbyei")
+region = Rect2(0, 0, 74, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjsjy"]
+atlas = ExtResource("2_uok5o")
+region = Rect2(148, 0, 74, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_joadn"]
+atlas = ExtResource("2_uok5o")
+region = Rect2(222, 0, 74, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwcb0"]
+atlas = ExtResource("2_uok5o")
+region = Rect2(296, 0, 74, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5ta1"]
+atlas = ExtResource("2_uok5o")
+region = Rect2(74, 0, 74, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eaje3"]
+atlas = ExtResource("2_uok5o")
+region = Rect2(148, 0, 74, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlq25"]
+atlas = ExtResource("2_uok5o")
+region = Rect2(222, 0, 74, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5m5n"]
+atlas = ExtResource("2_uok5o")
+region = Rect2(296, 0, 74, 45)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jtogi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihhsw")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjsjy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_joadn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwcb0")
+}],
+"loop": true,
+"name": &"Sneak",
+"speed": 1.8
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5ta1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eaje3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rlq25")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u5m5n")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 3.0
+}]
 
 [node name="Rat" type="CharacterBody2D"]
 collision_mask = 15
@@ -11,15 +86,20 @@ motion_mode = 1
 wall_min_slide_angle = 0.347321
 script = ExtResource("1_p6iv6")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture_filter = 1
-texture = ExtResource("2_sbyei")
-
 [node name="ratArea" type="Area2D" parent="." groups=["Player"]]
 
 [node name="RatCollider" type="CollisionShape2D" parent="ratArea"]
 position = Vector2(8.925, -3.405)
 scale = Vector2(1.73, 1.73)
 shape = SubResource("CircleShape2D_1p537")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_jtogi")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.649768
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 
 [connection signal="area_entered" from="ratArea" to="." method="_on_rat_area_area_entered"]

@@ -17,7 +17,7 @@ func _process(delta):
 		
 	elif cmode == "house":
 		position = position.lerp(rat.position, 4.5 * delta)
-		zoom = Vector2(2.75, 2.75)
+		zoom = Vector2(3.75, 3.75)
 	
 	elif cmode == "street":
 		pass

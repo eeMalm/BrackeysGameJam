@@ -17,11 +17,11 @@ func _process(delta: float) -> void:
 	
 	# Handling global sneako efffects
 	if Sneak:
-		for n in get_tree().get_nodes_in_group("Enemies"):
+		for n in get_tree().get_nodes_in_group("Human"):
 			#rewrite
 			pass
 	if !Sneak:
-		for n in get_tree().get_nodes_in_group("Enemies"):
+		for n in get_tree().get_nodes_in_group("Human"):
 			#rewrite
 			pass
 			

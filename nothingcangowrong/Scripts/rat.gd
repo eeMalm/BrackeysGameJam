@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 
-var ACCELERATION : float = 4000
-var MAXSPEED : float = 200.0
+var ACCELERATION : float = 3000
+var MAXSPEED : float = 150.0
 var Direction : Vector2
 var Friction : float = 0.0
 @export var Sneak : bool

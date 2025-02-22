@@ -14,4 +14,5 @@ func _process(delta):
 func _on_area_2d_body_entered(body):
 	if body == get_node("/root/Main/Rat"):
 		if item != null:
-			get_tree().get_node("/root/Main").effect(item)
+			get_tree().root.get_node("Main").effect(item)
+			queue_free()

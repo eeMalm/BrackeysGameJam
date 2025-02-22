@@ -1,0 +1,104 @@
+[gd_scene load_steps=13 format=3 uid="uid://dnp8jr503mk8f"]
+
+[ext_resource type="Script" path="res://Scripts/street.gd" id="1_hgg7n"]
+[ext_resource type="Texture2D" uid="uid://b4vkqv7kjst28" path="res://Assets/street.png" id="2_3yhw2"]
+[ext_resource type="Texture2D" uid="uid://da8q1qg754v5l" path="res://Assets/house2.png" id="3_njkiv"]
+[ext_resource type="Texture2D" uid="uid://dtkh4jkes5n12" path="res://Assets/house1.png" id="4_oastv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8cow8"]
+size = Vector2(711, 108)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pthpn"]
+size = Vector2(1496, 73)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_obahw"]
+size = Vector2(76, 426)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lh8ug"]
+size = Vector2(231.667, 203)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_61j5y"]
+size = Vector2(202.333, 111.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5582b"]
+size = Vector2(64.6667, 104)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mx4xf"]
+size = Vector2(40, 146)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xwccu"]
+radius = 28.1603
+
+[node name="Street" type="Node2D"]
+z_index = -10
+scale = Vector2(3, 3)
+script = ExtResource("1_hgg7n")
+
+[node name="Street" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-255, -133)
+texture = ExtResource("2_3yhw2")
+
+[node name="Street" type="Sprite2D" parent="Street"]
+texture_filter = 1
+position = Vector2(640, 0)
+texture = ExtResource("2_3yhw2")
+
+[node name="Street" type="Sprite2D" parent="Street/Street"]
+texture_filter = 1
+position = Vector2(-1280, 0)
+texture = ExtResource("2_3yhw2")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-278.5, -145)
+shape = SubResource("RectangleShape2D_8cow8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-260, 84.5)
+shape = SubResource("RectangleShape2D_pthpn")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(95, -157)
+shape = SubResource("RectangleShape2D_obahw")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-164.833, -139.5)
+shape = SubResource("RectangleShape2D_lh8ug")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-473.167, -93.75)
+shape = SubResource("RectangleShape2D_61j5y")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(36.3333, -91)
+shape = SubResource("RectangleShape2D_5582b")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-300, -110)
+shape = SubResource("RectangleShape2D_mx4xf")
+
+[node name="House2" type="Sprite2D" parent="." groups=["House2"]]
+texture_filter = 1
+position = Vector2(-381, -151)
+texture = ExtResource("3_njkiv")
+
+[node name="House1Area" type="Area2D" parent="House2"]
+position = Vector2(60, 152)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="House2/House1Area"]
+position = Vector2(-23, -77.3333)
+shape = SubResource("CircleShape2D_xwccu")
+
+[node name="House1" type="Sprite2D" parent="." groups=["House1"]]
+texture_filter = 1
+position = Vector2(-60, -152)
+texture = ExtResource("4_oastv")
+
+[node name="House1Area" type="Area2D" parent="House1"]
+position = Vector2(60, 152)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="House1/House1Area"]
+position = Vector2(-22.6667, -80.6667)
+shape = SubResource("CircleShape2D_xwccu")

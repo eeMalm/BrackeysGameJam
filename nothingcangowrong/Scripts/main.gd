@@ -1,7 +1,7 @@
 extends Node2D
 
 var Sneak : bool
-var ReactionZone : Vector2 = Vector2(7, 9)
+var ReactionZone : Vector2 = Vector2(7, 8)
 
 # To Do: write the human AI to handle reaction times
 var ReactionTime : float
@@ -13,17 +13,17 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	
-	
+	Sneak = $Rat.Sneak
+	#ugly way of checking we are in a house
+	if $Camera2D.cmode == "house":
 	# Handling global sneako efffects
-	if Sneak:
-		for n in get_tree().get_nodes_in_group("Human"):
-			#rewrite
-			pass
-	if !Sneak:
-		for n in get_tree().get_nodes_in_group("Human"):
-			#rewrite
-			pass
+		if Sneak:
+			for n in get_tree().get_nodes_in_group("Enemies"):
+				n.ReactionZone = ReactionZone * 0.6
+				
+		if !Sneak:
+			for n in get_tree().get_nodes_in_group("Enemies"):
+				n.ReactionZone = ReactionZone
 			
 
 func effect(item: String) -> void:
@@ -44,7 +44,7 @@ func effect(item: String) -> void:
 		pass
 
 func start_battle() -> void:
-	RatStack.push_back([$Rat.position, $Enviornment.get_children(), $Camera2D.cmode])
+	RatStack.push_back([$Rat.position, PackedScene.new().pack($Enviornment.get_child(0)), $Camera2D.cmode])
 	#Enviornemnt may never have more than 1 child
 	$Enviornment.remove_child($Enviornment.get_child(0))
 	$Enviornment.add_child(load("res://Scenes/combat.tscn").instantiate())
@@ -53,10 +53,23 @@ func start_battle() -> void:
 	$Camera2D.cmode = "combat"
 	pass
 
+func start_house1() -> void:
+	var prev_scene = PackedScene.new()
+	prev_scene.pack($Enviornment.get_child(0))
+	RatStack.push_back([$Rat.position + Vector2(0, 40), prev_scene, $Camera2D.cmode])
+	#Enviornemnt may never have more than 1 child
+	$Enviornment.remove_child($Enviornment.get_child(0))
+	$Enviornment.add_child(load("res://Scenes/house_1.tscn").instantiate())
+	$"Rat".position = Vector2(0, 0)
+	$Camera2D.cmode = "house"
+	pass
+
+
+
 func exit_scene() -> void:
 	$Rat.position = RatStack[-1][0]
 	#Enviornemnt may never have more than 1 child
 	$Enviornment.remove_child($Enviornment.get_child(0))
-	$Enviornment.add_child(load(RatStack[-1][1]).instantiate())
-	$Camera2D.mode = RatStack[-1][2]
+	$Enviornment.add_child(RatStack[-1][1].instantiate())
+	$Camera2D.cmode = RatStack[-1][2]
 	RatStack.pop_back()

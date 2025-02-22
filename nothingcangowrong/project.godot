@@ -20,6 +20,9 @@ config/icon="res://Assets/icon.svg"
 Enemies="Mainly for looping over enemies to change propertiees about them"
 Player=""
 Human=""
+House1=""
+House2=""
+Exit=""
 
 [input]
 

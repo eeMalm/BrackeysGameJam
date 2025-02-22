@@ -1,6 +1,6 @@
 extends Camera2D
 
-var cmode : String = "house"
+var cmode : String = "street"
 var rat :CharacterBody2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,4 +20,7 @@ func _process(delta):
 		zoom = Vector2(3.75, 3.75)
 	
 	elif cmode == "street":
+		position.y = -120
+		position.x = Vector2(position.x, 0).lerp(Vector2(rat.position.x, 0), 4.5 * delta).x
+		zoom = Vector2(2, 2)
 		pass

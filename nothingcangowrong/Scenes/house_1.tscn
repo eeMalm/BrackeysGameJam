@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://dxfceuivx4hho"]
+[gd_scene load_steps=17 format=4 uid="uid://dxfceuivx4hho"]
 
 [ext_resource type="Texture2D" uid="uid://crycbdm8fvtrq" path="res://Assets/kitchen furniture tilemap new2.png" id="1_7g757"]
 [ext_resource type="Script" path="res://Scenes/house_1.gd" id="1_nd3aw"]
@@ -289,18 +289,21 @@ sources/1 = SubResource("TileSetAtlasSource_ruoem")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_npmxp"]
 size = Vector2(104.652, 61.5182)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3l1kx"]
+size = Vector2(206, 149)
+
 [node name="House1" type="Node2D"]
+position = Vector2(0, -79)
 script = ExtResource("1_nd3aw")
 
 [node name="ItemContainer" parent="." instance=ExtResource("6_ytumw")]
-texture_filter = 1
 position = Vector2(-663, -305)
 texture = ExtResource("5_hyd2w")
 item = "cheese"
 
 [node name="Human2" parent="." instance=ExtResource("3_8qlpy")]
 position = Vector2(-318, -95)
-NodeArray = Array[Vector2]([Vector2(0, -450), Vector2(-250, -250), Vector2(-300, 40), Vector2(-250, -240)])
+NodeArray = Array[Vector2]([Vector2(0, -480), Vector2(-250, -250), Vector2(-300, 40), Vector2(-250, -240)])
 
 [node name="TileMap" type="TileMap" parent="."]
 z_index = -10
@@ -382,3 +385,20 @@ texture = ExtResource("9_a8b0n")
 position = Vector2(1061, -548)
 texture = ExtResource("5_hyd2w")
 item = "cheese"
+
+[node name="PileOfToys2" type="Sprite2D" parent="."]
+position = Vector2(379.375, -553.375)
+scale = Vector2(-0.499, 0.621)
+texture = ExtResource("9_a8b0n")
+
+[node name="PileOfToys3" type="Sprite2D" parent="."]
+position = Vector2(-627, 45)
+scale = Vector2(0.485019, 0.522857)
+texture = ExtResource("9_a8b0n")
+
+[node name="Exit" type="Area2D" parent="." groups=["Exit"]]
+position = Vector2(1, 176)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
+position = Vector2(-4, 13.5)
+shape = SubResource("RectangleShape2D_3l1kx")

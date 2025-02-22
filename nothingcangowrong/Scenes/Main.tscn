@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8ul0wtm4jlyu"]
+[gd_scene load_steps=5 format=3 uid="uid://b8ul0wtm4jlyu"]
 
 [ext_resource type="PackedScene" uid="uid://guu5bbsbqc43" path="res://Scenes/rat.tscn" id="1_4rash"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_g12os"]
 [ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="2_4cdu1"]
-[ext_resource type="PackedScene" uid="uid://dxfceuivx4hho" path="res://Scenes/house_1.tscn" id="4_uj864"]
-[ext_resource type="Texture2D" uid="uid://dnqfm84tnf3c1" path="res://Assets/pile of toys.png" id="5_sool5"]
+[ext_resource type="PackedScene" uid="uid://dnp8jr503mk8f" path="res://Scenes/street.tscn" id="4_i78eg"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_g12os")
@@ -18,15 +17,4 @@ script = ExtResource("2_4cdu1")
 
 [node name="Enviornment" type="Node2D" parent="."]
 
-[node name="House1" parent="Enviornment" instance=ExtResource("4_uj864")]
-position = Vector2(9, -79)
-
-[node name="PileOfToys" type="Sprite2D" parent="."]
-position = Vector2(-628, -22)
-scale = Vector2(0.398876, 0.46)
-texture = ExtResource("5_sool5")
-
-[node name="PileOfToys2" type="Sprite2D" parent="."]
-position = Vector2(1036.25, -623.25)
-scale = Vector2(0.451311, 0.505714)
-texture = ExtResource("5_sool5")
+[node name="Street" parent="Enviornment" instance=ExtResource("4_i78eg")]

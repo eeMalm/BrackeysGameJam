@@ -7,13 +7,13 @@ var HumanSpeed : float = 150
 var CurrentIndex : int = 0
 var noticed : bool
 var paused : bool = false
-
+@export var ReactionZone : Vector2 = Vector2(7, 8)
 # Called when the node enters the scene tree for the first time.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	
+	$SightArea/CollisionShape2D.scale = ReactionZone
 	if !paused:
 		
 		if !noticed:

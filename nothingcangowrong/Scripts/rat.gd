@@ -72,7 +72,12 @@ func _on_rat_area_area_entered(area) -> void:
 		print("human collsion")
 		get_tree().root.get_node("Main").call_deferred("start_battle")
 		pass
-
+	if area.is_in_group("Exit"):
+		get_tree().root.get_node("Main").call_deferred("exit_scene")
+		
+	if area.get_parent().is_in_group("House1"):
+		get_tree().root.get_node("Main").call_deferred("start_house1")
+		
 	if area.is_in_group("Enemies"):
 		print("player got hit!")
 		#add take damage function here

@@ -1,11 +1,11 @@
 extends CharacterBody2D
 
 
-const SPEED = -300.0
+const SPEED = -600.0
 var forward: bool = true
 
 func _physics_process(delta: float) -> void:
-	if position.x <0:
+	if position.x <-500:
 		forward=false
 	if forward:
 		velocity.x=SPEED

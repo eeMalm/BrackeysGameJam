@@ -1,14 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://cm5g1fqokxler"]
+[gd_scene load_steps=3 format=3 uid="uid://cm5g1fqokxler"]
 
 [ext_resource type="Script" path="res://Scripts/combat.gd" id="1_563ic"]
-[ext_resource type="PackedScene" uid="uid://cny1cv5n5xpl" path="res://Scenes/broom_attack.tscn" id="3_s0uu2"]
-[ext_resource type="PackedScene" uid="uid://dxll6hx2o5gbg" path="res://Scenes/stomp_attack.tscn" id="4_gjjfo"]
+[ext_resource type="Texture2D" uid="uid://bfxsn0fwukif8" path="res://Assets/heart.png" id="2_ylgaq"]
 
 [node name="Combat" type="Node2D"]
 z_index = 10
 script = ExtResource("1_563ic")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
 
 [node name="combatBackground" type="Sprite2D" parent="."]
 modulate = Color(0.176419, 0.176419, 0.176419, 1)
@@ -16,12 +17,17 @@ z_index = 10
 position = Vector2(594, 188)
 scale = Vector2(4.28438, 5.10972)
 
-[node name="Broom Attack" parent="." instance=ExtResource("3_s0uu2")]
-z_index = 10
-position = Vector2(1242, 456)
+[node name="HealthBar" type="ProgressBar" parent="."]
+modulate = Color(1, 0.443137, 0.729412, 1)
+offset_left = -107.5
+offset_top = 277.0
+offset_right = 121.5
+offset_bottom = 304.0
+max_value = 3.0
+show_percentage = false
 
-[node name="Stomp Attack" parent="." instance=ExtResource("4_gjjfo")]
-z_index = 10
-position = Vector2(395, 16)
+[node name="Heart" type="Sprite2D" parent="."]
+position = Vector2(-112.5, 290)
+texture = ExtResource("2_ylgaq")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

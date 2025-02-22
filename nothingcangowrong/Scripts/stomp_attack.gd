@@ -5,7 +5,7 @@ const SPEED = 300.0
 var up: bool = true
 
 func _physics_process(delta: float) -> void:
-	if position.y >650:
+	if position.y >300:
 		up=false
 	if up:
 		velocity.y=SPEED

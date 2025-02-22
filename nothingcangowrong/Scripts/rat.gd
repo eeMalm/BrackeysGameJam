@@ -80,6 +80,8 @@ func _on_rat_area_area_entered(area) -> void:
 		
 	if area.is_in_group("Enemies"):
 		print("player got hit!")
+		Health-=1
+		
 		#add take damage function here
 		
 
